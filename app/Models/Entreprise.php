@@ -4,19 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 use App\Models\Category;
+use App\Models\User;
 
-class Article extends Model
+class Entreprise extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','categorie_id','title','description'];
+    protected $fillable = ['user_id','name','url_name'];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
-    public function categorie(){
-        return $this->belongsTo(Category::class);
+
+    public function categories(){
+        return $this->hasMany(Category::class);
     }
 }

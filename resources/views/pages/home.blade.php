@@ -27,14 +27,14 @@
                         <ul class="sf-menu dtr-scrollspy dtr-nav dark-nav-on-load dark-nav-on-scroll">
                             <li> <a class="nav-link" href="#home">Acceuil</a> </li>
                             <li> <a class="nav-link" href="#about">A propos</a> </li>
-                            <li> <a class="nav-link" href="#contact">Contact</a> </li>
+                            <li> <a class="nav-link" href="{{route('create-categorie')}}">Contact</a> </li>
                         </ul>
                     </div>
                 </div>
                 <!-- menu ends --> 
                 
                 <!-- header button starts --> 
-                <a href="#contact" class="dtr-btn dtr-btn-styled btn-red dtr-scroll-link dtr-ml-30">créer votre entreprise</a> 
+                <a href="{{route('dashboard')}}" class="dtr-btn dtr-btn-styled btn-blue  dtr-ml-30">Administration</a> 
                 <!-- header button ends --> 
                 
             </div>

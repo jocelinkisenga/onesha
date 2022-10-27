@@ -3,20 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Article;
-use App\Models\Category;
-use Auth;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Entreprise;
 
-class ArticleController extends Controller
+class EntrepriseController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index()
     {
         //
     }
@@ -28,8 +24,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $categories  = Category::all();
-        return view('pages.articles',['categories'=>$categories]);
+       
+        return view('admin.entreprise');
     }
 
     /**
@@ -40,19 +36,11 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        
-        /*$fileName=$request->file('file')->getClientOriginalName();
-        $path=$request->file('file')->storeAs('uploads', $fileName, 'public');
-        
-        */
-        /*$imgpath = request()->file('file')->store('uploads', 'public');*/
-        /*$userId = Auth::user()->id;
-        Article::create([
-                'user_id'=>$userId,
-                'categorie_id'=>$request->categorie_id,
-                'title'=>$request->title,
-                'description'=>$request->description
-            ]);*/
+        Entreprise::create([
+            'user_id'=>$request->user_id,
+            'name'=>$request->name,
+            'url_name'=>$request->url_name
+            ]);
     }
 
     /**

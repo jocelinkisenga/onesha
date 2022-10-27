@@ -26,13 +26,13 @@
 <body>
 <div id="dtr-wrapper" class="clearfix"> 
     
-    <!-- preloader starts -->
+    <!-- preloader starts 
     <div class="dtr-preloader">
         <div class="dtr-preloader-inner">
             <div class="dtr-preloader-img"></div>
         </div>
     </div>
-    <!-- preloader ends --> 
+     preloader ends --> 
     
     <!-- Small Devices Header 
 ============================================= -->

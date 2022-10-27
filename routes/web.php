@@ -15,16 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('index');
+
+
+
+Route::get('entreprise/{entreprise}', [App\Http\Controllers\HomeController::class, 'entreprise']);
+
+/*Route::middleware(['auth'])->group(function(){*/
+        Route::get('/categories', [App\Http\Controllers\CategorieController::class, 'create'])->name('create-categorie');
+        Route::post('/categories', [App\Http\Controllers\CategorieController::class, 'store'])->name('store-categorie');
+        Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/products', [App\Http\Controllers\ProductController::class, 'create'])->name('create-product');
+        Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->name('store-product');
+        Route::get('/Entreprise', [App\Http\Controllers\EntrepriseController::class, 'create'])->name('create-entreprise');
+        Route::post('/Entreprise', [App\Http\Controllers\EntrepriseController::class, 'store'])->name('store-entreprise');
+    
+  /*  });*/
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//Route::get('/categories', [App\Http\Controllers\CategorieController::class, 'index'])->name('all');
-Route::get('/categories', [App\Http\Controllers\CategorieController::class, 'create'])->name('create-categorie');
-Route::post('/categories', [App\Http\Controllers\CategorieController::class, 'store'])->name('store-categorie');
-
-Route::middleware(['auth'])->group(function(){
-        Route::get('/articles', [App\Http\Controllers\ArticleController::class, 'create'])->name('create-article');
-        Route::post('/articles', [App\Http\Controllers\ArticleController::class, 'store'])->name('store-article');
-    });
